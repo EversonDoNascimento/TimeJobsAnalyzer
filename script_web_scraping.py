@@ -4,7 +4,7 @@ from collections import Counter
 from urllib.parse import urlparse, parse_qs, urlencode, urlunparse
 import matplotlib.pyplot as plt
 import re
-
+import random
 vacancy = ""
 while re.sub(r'\s+', '', vacancy) == "":
     vacancy = input("Type it your desire vacancy: ")
@@ -51,12 +51,18 @@ def scrapingJobs(end_page: str = 1, search: str = "python"):
 
 
 def generateGraphic(list, office):
+    plt.figure(figsize=(15, 6))
     if(len(list) >= 0):
         for key, value in list:
+            
             plt.bar(key, value, color="blue", edgecolor="black")
+            
             plt.title('Jobs')
             plt.xlabel('Office')
             plt.ylabel(f'Quantity of Vacancies {office}')
+           
+        plt.savefig(f'Jobs{random.randint(1,100000)}.png')
+        
         plt.show()
     else:
         print("Vacancies not found!")

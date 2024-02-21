@@ -61,7 +61,7 @@ def generateGraphic(list, office):
             plt.xlabel('Office')
             plt.ylabel(f'Quantity of Vacancies {office}')
            
-        plt.savefig(f'Jobs{random.randint(1,100000)}.png')
+        plt.savefig(f'Jobs_to_{vacancy}_{random.randint(1,100000)}.png')
         
         plt.show()
     else:
